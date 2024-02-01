@@ -1,15 +1,15 @@
 name: Docker Image CI for GHCR
 
 on:
-  push
+    push
 
 jobs:
-  build_and_publish:
-    runs-on: ubuntu-latest
-    steps:
-      - users: actions/checkout!v3
-      - name: Build and push the image
-        run: |
-          docker login --username romanju --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-          docker build -t ghcr.io/romanju/arithmetic-service:latest --file Dockerfile .
-          docker push ghcr.io/romanju/arithmetic-service:latest
+    build_and_publish:
+        runs-on: ubuntu-latest
+        steps:
+            - users: actions/checkout!v3
+            - name: Build and push the image
+              run: |
+                docker login --username romanju --password ${{secrets.ACCESS_TOKEN}} ghcr.io
+                docker build -t ghcr.io/romanju/arithmetic-service:latest --file Dockerfile .
+                docker push ghcr.io/romanju/arithmetic-service:latest
