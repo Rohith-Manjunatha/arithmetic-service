@@ -13,4 +13,8 @@ app.get('/add/:n/:m',(req,res) => {
     res.json(Number(req.params.n) + Number(req.params.m));
 });
 
+app.get('/evaluate/:expression' ,(req, res) => {
+    res.json(eval(expression));
+});
+
 app.listen(port);
