@@ -14,7 +14,8 @@ app.get('/add/:n/:m',(req,res) => {
 });
 
 app.get('/evaluate/:expression' ,(req, res) => {
-    res.json(eval(req.params.expression));
+    const decodedExpression = decodeURIComponent(req.params.expression);
+    res.json(eval(decodedExpression));
 });
 
 app.listen(port);
