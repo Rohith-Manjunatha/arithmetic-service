@@ -14,7 +14,7 @@ app.get('/add/:n/:m',(req,res) => {
 });
 
 app.get('/evaluate/:expression' ,(req, res) => {
-    res.json(eval(expression));
+    res.json(eval(req.params.expression));
 });
 
 app.listen(port);
