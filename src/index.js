@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const { add } = require("./arthimetica")
 const app = express();
 const port = 3000;
 
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Arthmetic Service - Hello World!');
+    res.send('Arthmetic Service - last updated 02/15/2024-03:30PM');
 });
 
 app.get('/add/:n/:m',(req,res) => {
-    res.json(Number(req.params.n) + Number(req.params.m));
+    let n = Number(req.params.n); 
+    let m = Number(req.params.m);
+    let sum = add(n+m);
+    res.json(sum);
 });
 
 app.get('/evaluate/:expression' ,(req, res) => {
