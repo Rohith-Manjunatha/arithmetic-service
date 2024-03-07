@@ -1,8 +1,13 @@
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const { add } = require("./arthimetica")
 const app = express();
-const port = 3000;
+
+if (!process.env.PORT){
+    throw new Error("Please specify the port number for the HTTP server with the enviroment variable PORT.")
+}
+const port = process.env.PORT;
 
 app.use(cors());
 
